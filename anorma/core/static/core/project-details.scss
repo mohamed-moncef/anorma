@@ -1,0 +1,110 @@
+/* Reset default styles */
+
+$primary-text-color: #ff1c04;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: $primary-text-color; // Orange-red text color
+    background-color: #330000; // Dark red background
+    overflow-x: hidden; // Hide horizontal scrollbar
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1440px;
+
+    .logo {
+        .logo-image {
+            max-height: 50px; // Adjust the height as needed
+            width: auto;
+        }
+    }
+
+    .language-selector {
+        a {
+            color: $primary-text-color;
+            text-decoration: none;
+            margin-left: 5px;
+
+            &.active {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.project-details {
+    width: 100%;
+    max-width: 1440px;
+    height: 80vh;
+    font-size: 25px;
+    margin-top: 3rem;
+    padding: 20px 40px;
+
+    .image-container {
+        width: 100%;
+        height: 100%;
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .project-info {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+        img {
+            height: 300px;
+            width: auto;
+        }
+        .general-info{
+            line-height: 27px;
+            padding-bottom: 4.5rem;
+        }
+        .sypnosis{
+            padding-bottom: 1rem;
+        }
+        .content-block{
+            margin-bottom: 2rem;
+            p{
+                width: 100%;
+                overflow-wrap: break-word;
+                resize: vertical;
+            }
+        }
+    }
+}
+
+.pagination{
+    width: 100%;
+    font-size: 25px;
+    color: $primary-text-color;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    a{
+        color: $primary-text-color;
+        text-decoration: none;
+    }
+}
+

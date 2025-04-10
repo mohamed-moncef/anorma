@@ -1,0 +1,130 @@
+/* Reset default styles */
+
+$primary-text-color: #ff1c04;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: $primary-text-color; // Orange-red text color
+    background-color: #e5d4c0; // Dark red background
+    overflow-x: hidden; // Hide horizontal scrollbar
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1440px;
+
+    .logo {
+        .logo-image {
+            max-height: 50px; // Adjust the height as needed
+            width: auto;
+        }
+    }
+
+    .language-selector {
+        a {
+            color: $primary-text-color;
+            text-decoration: none;
+            margin-left: 5px;
+
+            &.active {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.about-container{
+    width: 100%;
+    max-width: 1440px;
+    height: 80vh;
+    padding: 20px 40px;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 2fr 2fr repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    .image-container{
+        width: 100%;
+        grid-area: 1 / 1 / 2 / 2;
+        height: 100%;
+        font-size: 10px;
+        // padding-right: 10rem;
+        img {
+            height: auto;
+            width: 80%;
+            padding-bottom: 2.5rem;
+        }
+        .definition{
+            width: 80%;
+        }
+        h1,h2{
+            padding-bottom: 1rem;
+            font-weight: 300;
+        }
+    }
+    .description{
+        font-size: 25px;
+        grid-area: 1 / 2 / 2 / 6;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding-left: 4.5rem;
+        p{
+            padding-bottom: 1rem;
+        }
+        .separator{
+            text-decoration: underline;
+            padding-bottom: 1.5rem;
+        }
+        .links{
+            a{
+                color: $primary-text-color;
+            }
+        }
+    }
+}
+
+.go-back{
+    width: 100%;
+    max-width: 1440px;
+    padding: 20px 40px; 
+    font-size: 25px;
+    display: flex;
+    flex-direction: row-reverse;
+    a{
+        text-decoration: none;
+        color: $primary-text-color;
+    }
+}
+
+.content-block{
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    p{
+        width: 80%;
+    }
+}

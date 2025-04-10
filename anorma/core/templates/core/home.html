@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anorma Films</title>
+    {% load sass_tags %}
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% sass_src 'core/styles.scss' %}">
+</head>
+
+<body>
+    <div class="background-image"></div>
+
+    <header>
+        <div class="logo">
+            <img src="{% static 'core/ANORMA-logo-RGBood-website.png' %}" alt="Anorma Films Logo" class="logo-image">
+        </div>
+        <nav class="language-selector">
+            <a href="#" class="active">Fr.</a> /
+            <a href="#">Eng.</a>
+        </nav>
+    </header>
+
+    <main class="home">
+        <section class="menu">
+            <h2>‎</h2>
+            <ul>
+                <li><a href="{% url 'about' %}">À propos</a></li>
+                <li><a href="{% url 'actualites' %}">Actualités</a></li>
+                <li><a href="{% url 'services' %}">Film service</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>Projets</h2>
+            <ul>
+                {% for project in projects %}
+                <li>
+                    <a href="{% url 'project_detail' project_id=project.id %}">
+                        {{ project.title }} <span>({{ project.project_type }})</span> <br>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="upcoming-projects">
+            <h2>Projets à venir</h2>
+            <ul>
+                {% for project in upcoming_projects %}
+                <li>
+                    <a href="{% url 'upcoming_project_detail' project_id=project.id %}">
+                        {{ project.title }} <span>({{ project.project_type }})</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

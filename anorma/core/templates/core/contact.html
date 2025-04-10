@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Anorma Films</title>
+    {% load sass_tags %}
+    {% load static %}
+    <link rel="stylesheet" href="{% sass_src 'core/contact.scss' %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <a href="{% url 'home' %}">
+
+                <img src="{% static 'core/ANORMA-logo-RGBood-website.png' %}" alt="Anorma Films Logo"
+                    class="logo-image">
+            </a>
+        </div>
+        <nav class="language-selector">
+            Contact
+        </nav>
+    </header>
+    <main>
+        <div class="contact-container">
+            <h1>Contact Nous</h1>
+
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="post">
+                <!-- {% csrf_token %} -->
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+            <ul class="social-media">
+                {% for link in social_media_links %}
+                <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+                {% empty %}
+                <li>No social media links available.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+
+
+    <div class="go-back">
+        <a href="{% url 'home' %}">Back</a>
+    </div>
+</body>
+
+</html>
+</body>
+
+</html>

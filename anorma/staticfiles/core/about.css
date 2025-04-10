@@ -1,0 +1,100 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #ff1c04;
+  background-color: #e5d4c0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+header {
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px; }
+  header .logo .logo-image {
+    max-height: 50px;
+    width: auto; }
+  header .language-selector a {
+    color: #ff1c04;
+    text-decoration: none;
+    margin-left: 5px; }
+    header .language-selector a.active {
+      font-weight: bold; }
+
+.about-container {
+  width: 100%;
+  max-width: 1440px;
+  height: 80vh;
+  padding: 20px 40px;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 2fr 2fr repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; }
+  .about-container .image-container {
+    width: 100%;
+    grid-area: 1 / 1 / 2 / 2;
+    height: 100%;
+    font-size: 10px; }
+    .about-container .image-container img {
+      height: auto;
+      width: 80%;
+      padding-bottom: 2.5rem; }
+    .about-container .image-container .definition {
+      width: 80%; }
+    .about-container .image-container h1, .about-container .image-container h2 {
+      padding-bottom: 1rem;
+      font-weight: 300; }
+  .about-container .description {
+    font-size: 25px;
+    grid-area: 1 / 2 / 2 / 6;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-left: 4.5rem; }
+    .about-container .description p {
+      padding-bottom: 1rem; }
+    .about-container .description .separator {
+      text-decoration: underline;
+      padding-bottom: 1.5rem; }
+    .about-container .description .links a {
+      color: #ff1c04; }
+
+.go-back {
+  width: 100%;
+  max-width: 1440px;
+  padding: 20px 40px;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row-reverse; }
+  .go-back a {
+    text-decoration: none;
+    color: #ff1c04; }
+
+.content-block {
+  text-align: center;
+  font-size: 25px;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center; }
+  .content-block p {
+    width: 80%; }
+
+/*# sourceMappingURL=about.css.map */

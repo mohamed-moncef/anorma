@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>{{ project.title }} - Anorma Films</title>
+    {% load sass_tags %}
+    {% load static %}
+    <link rel="stylesheet" href="{% sass_src 'core/upcoming-project-detail.scss' %}">
+</head>
+
+<body style="background-color: {{ project.background_color }}; color: {{ project.font_color }}">
+    <header>
+        <div class="logo"><a href="{% url 'home' %}">
+            <img src="{% static 'core/ANORMA-logo-RGBood-website.png' %}" alt="Anorma Films Logo" class="logo-image">
+        </a>
+        </div>
+        <nav class="language-selector">
+            <a href="#" class="active">Fr.</a> /
+            <a href="#">Eng.</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="project-details">
+            <div class="image-container">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+            </div>
+            <div class="project-info">
+                <div class="general-info">
+                    <h2>{{ project.title }}</h2>
+                    <p><strong>Author:</strong> {{ project.author }}</p>
+                    <p><strong>Type:</strong> {{ project.project_type }}</p>
+                </div>
+
+                <!-- Debugging: Check if content blocks exist -->
+                {% if content_blocks %}
+                <!-- Dynamic Content Blocks -->
+                <h2 class="sypnosis">SYPNOSIS</h2>
+                {% for block in content_blocks %}
+                <div class="content-block {{ block.content_type_block }}">
+                    {% if block.content_type_block == 'text' %}
+                    <p>{{ block.text_content|linebreaks }}</p>
+                    {% elif block.content_type_block == 'image' %}
+                    <img src="{{ block.image_content.url }}" alt="Project content">
+                    {% elif block.content_type_block == 'video' %}
+                    <iframe src="{{ block.video_url }}" allowfullscreen></iframe>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>No content found for this project.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <!-- Navigation -->
+        <nav class="pagination">
+            {% if prev_upcoming %}
+                <a href="{% url 'upcoming_project_detail' project_id=prev_upcoming.id %}" class="previous">Previous</a>
+            {% else %}
+                <span class="previous disabled">Previous</span>
+            {% endif %}
+            
+            {% if next_upcoming %}
+                <a href="{% url 'upcoming_project_detail' project_id=next_upcoming.id %}" class="next">Next</a>
+            {% else %}
+                <span class="next disabled">Next</span>
+            {% endif %}
+        </nav>
+    </main>
+</body>
+
+</html>

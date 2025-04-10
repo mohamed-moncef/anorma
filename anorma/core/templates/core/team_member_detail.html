@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>{{ project.title }} - Anorma Films</title>
+    {% load sass_tags %}
+    {% load static %}
+    <link rel="stylesheet" href="{% sass_src 'core/about.scss' %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <a href="{% url 'home' %}/">
+
+                <img src="{% static 'core/ANORMA-logo-RGBood-website.png' %}" alt="Anorma Films Logo"
+                    class="logo-image">
+            </a>
+        </div>
+        <nav class="language-selector">
+            Contact
+        </nav>
+    </header>
+
+<!-- team_member_detail.html -->
+<h1>{{ member.name }}</h1>
+<h2>{{ member.role }}</h2>
+
+{% if member.profile_image %}
+    <img src="{{ member.profile_image.url }}" alt="{{ member.name }}">
+{% endif %}
+
+<!-- Content Blocks -->
+{% for block in content_blocks %}
+    <div class="content-block {{ block.content_type_block }}">
+        {% if block.content_type_block == 'text' %}
+            <p>{{ block.text_content|linebreaks }}</p>
+        {% elif block.content_type_block == 'image' %}
+            <img src="{{ block.image_content.url }}" alt="Content image">
+        {% elif block.content_type_block == 'video' %}
+            <iframe src="{{ block.video_url }}" allowfullscreen></iframe>
+        {% endif %}
+    </div>
+{% endfor %}
+
+<div class="go-back">
+    <a href="{% url 'about' %}">Back</a>
+</div>
+</body>
+
+</html>

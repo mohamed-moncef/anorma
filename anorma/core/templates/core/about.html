@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>{{ project.title }} - Anorma Films</title>
+    {% load sass_tags %}
+    {% load static %}
+    <link rel="stylesheet" href="{% sass_src 'core/about.scss' %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <a href="{% url 'home' %}">
+
+                <img src="{% static 'core/ANORMA-logo-RGBood-website.png' %}" alt="Anorma Films Logo"
+                    class="logo-image">
+            </a>
+        </div>
+        <nav class="language-selector">
+            Contact
+        </nav>
+    </header>
+
+    <main>
+        <div class="about-container">
+            <div class="image-container">
+                <img src="{% static 'core/Larousses.jpg' %}" alt="Larousse">
+                <div class="definition">
+                    <h1>ANORMA (nom, féminin)</h1>
+                    <h2>Étymologie : Du grec "A-" (absence) et du latin "Norma" (règle).</h2>
+                    <h2>
+                        Définition : Hors norme, affranchi des cadres établis, en quête de nouvelles voies.</h2>
+                </div>
+            </div>
+
+            <div class="description">
+                <p>
+                    ANORMA films revendique un cinéma libre, <br>
+                    décentré et essentiel. En donnant la parole aux <br>
+                    voix singulières et en tissant des ponts entre <br>
+                    les cultures, notre volonté est de produire des <br>
+                    œuvres qui bousculent les récits établis et <br>
+                    célèbrent l’altérité. Chaque projet est une <br>
+                    rencontre, un échange fondé sur l’écoute et la <br>
+                    confiance, où l’exigence artistique rime avec <br>
+                    humanité. Hors des sentiers battus, <br>
+                    ANORMA défend un cinéma audacieux, sincère et porteur <br>
+                    de sens, où chaque image est une invitation à <br>
+                    voir autrement. <br>
+                </p>
+                <div class="separator">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
+
+
+                <div class="links">
+                    {% for member in team_members %}
+                        <a href="{% url 'team_member_detail' member_id=member.id %}">
+                            {{ member.name }} - {{ member.role }}
+                        </a>
+                        <br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="go-back">
+        <a href="{% url 'home' %}">Back</a>
+    </div>
+</body>
+
+</html>

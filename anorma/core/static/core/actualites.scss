@@ -1,0 +1,117 @@
+/* Reset default styles */
+
+$primary-text-color: #ff1c04;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: $primary-text-color; // Orange-red text color
+    background-color: #480000; // Dark red background
+    overflow-x: hidden; // Hide horizontal scrollbar
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1440px;
+
+    .logo {
+        .logo-image {
+            max-height: 50px; // Adjust the height as needed
+            width: auto;
+        }
+    }
+
+    .language-selector {
+        a {
+            color: $primary-text-color;
+            text-decoration: none;
+            margin-left: 5px;
+
+            &.active {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+main {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: 25px;
+    .event-container {
+        width: 60%;
+        max-width: 1440px;
+        height: 75vh;
+        overflow-y: auto;
+        padding: 20px;
+    }
+    
+    .description-container {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        img {
+            width: 20%;
+            height:min-content;
+        }
+
+        p {
+            font-size: 25px;
+            width: calc(80% - 50px);
+            white-space: prewrap;
+            overflow-wrap: break-word;
+            resize: vertical;
+        }
+    }
+
+    h3 {
+        font-size: 25px;
+        text-decoration: underline;
+        padding-bottom: 1rem;
+        font-weight: 300;
+    }
+    h1{
+        font-weight: 500;
+        font-size: 25px;
+        margin-bottom: 1rem;
+    }
+
+}
+
+
+
+
+.go-back {
+    width: 100%;
+    max-width: 1440px;
+    padding: 20px 40px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row-reverse;
+
+
+    a {
+        text-decoration: none;
+        color: $primary-text-color;
+        width: fit-content;
+    }
+}
